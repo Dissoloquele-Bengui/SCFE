@@ -9,7 +9,7 @@ class CategoriaTituloHabitanteController extends Controller
 {
 
 
-       public function __construct(){
+    public function __construct(){
 
         $this->logger=new Logger();
 
@@ -47,8 +47,6 @@ class CategoriaTituloHabitanteController extends Controller
      public function store(Request $request){
         $request->validate([
             'vc_nome'=>'required',
-
-
         ],[
             'vc_nome.required'=>'O nome é um campo obrigatório',
 
