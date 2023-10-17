@@ -27,50 +27,15 @@
             </p>
 
             <li class="nav-item dropdown">
-            <li class="nav-item">
-                <a class="nav-link pl-3" href="{{ route('admin.categoria_titulo_habitante.index') }}"> <i class="fe fe-file-text fe-16"></i><span class="ml-1 item-text">Categoria Titulo Habitantes</span></a>
-            </li>
-            </li>
-
-            <li class="nav-item dropdown">
-            <li class="nav-item">
-                <a class="nav-link pl-3" href="{{ route('admin.categoria_servico.index') }}"> <i class="fe fe-file-text fe-16"></i><span class="ml-1 item-text">Categoria de serviço</span></a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link pl-3" href="{{ route('admin.categoria_titulo_habitante.index') }}">
+                         <i class="fe fe-file-text fe-16"></i>
+                         <span class="ml-1 item-text">Categoria Titulo Habitantes</span>
+                    </a>
+                </li>
             </li>
 
-
-            <li class="nav-item dropdown">
-            <li class="nav-item">
-                <a class="nav-link pl-3" href="{{ route('admin.telefone.index') }}"> <i class="fe fe-file-text fe-16"></i><span class="ml-1 item-text">Telefone</span></a>
-            </li>
-            </li>
-
-            <li class="nav-item dropdown">
-            <li class="nav-item">
-                <a class="nav-link pl-3" href="{{ route('admin.email.index') }}"> <i class="fe fe-file-text fe-16"></i><span class="ml-1 item-text">Email</span></a>
-            </li>
-            </li>
-
-            <li class="nav-item dropdown">
-            <li class="nav-item">
-                <a class="nav-link pl-3" href="{{ route('admin.morada_sede.index') }}"> <i class="fe fe-file-text fe-16"></i><span class="ml-1 item-text">Morada Sede</span></a>
-            </li>
-            </li>
-
-            
-
-             <li class="nav-item dropdown">
-            <li class="nav-item">
-                <a class="nav-link pl-3" href="{{ route('admin.servico_licenciado.index') }}"> <i class="fe fe-file-text fe-16"></i><span class="ml-1 item-text">Serviço Licenciado</span></a>
-            </li>
-            </li>
-
-              <li class="nav-item dropdown">
-            <li class="nav-item">
-                <a class="nav-link pl-3" href="{{ route('admin.motivo_revogacao_licenca.index') }}"> <i class="fe fe-file-text fe-16"></i><span class="ml-1 item-text">Revogação licença</span></a>
-            </li>
-            </li>
-            {{-- Logs --}}
+                        {{-- Logs --}}
 
 
             <p class="text-muted nav-heading mt-4 mb-1">
