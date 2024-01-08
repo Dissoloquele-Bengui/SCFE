@@ -8,6 +8,14 @@ use App\Models\Atraso;
 class AtrasoController extends Controller
 {
     //
+    public function index(Request $id)
+    {
+        // Lógica para obter os dados atrasados com base no ID
+        $dadosAtrasados = Atraso::where('it_id_tarefa_usuario', $id)->get();
+
+        return view('admin.atraso.index', ['dadosAtrasados' => $dadosAtrasados]);
+    }
+
     public function create(Request $request)
     {
         // Validar os dados do formulário, se necessário.

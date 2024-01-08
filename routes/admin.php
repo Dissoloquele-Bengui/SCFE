@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\Admin\OperadorController;
@@ -27,6 +28,10 @@ Route::prefix('categoria_titulo_habitante')->group(function () {
     Route::post('update/{id}', ['as' => 'admin.categoria_titulo_habitante.update', 'uses' => 'Admin\CategoriaTituloHabitanteController@update']);
     Route::get('destroy/{id}', ['as' => 'admin.categoria_titulo_habitante.destroy', 'uses' => 'Admin\CategoriaTituloHabitanteController@destroy']);
     Route::get('purge/{id}', ['as' => 'admin.categoria_titulo_habitante.purge', 'uses' => 'Admin\CategoriaTituloHabitanteController@purge']);
+});
+
+Route::prefix('atraso')->group(function () {
+    Route::get('index', ['as' => 'admin.atraso.index', 'uses' => 'AtrasoController@index']);
 });
 
 /*END CategoriaTituloHabitante*/
