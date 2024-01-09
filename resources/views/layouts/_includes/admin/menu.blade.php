@@ -28,6 +28,22 @@
 
             <li class="nav-item dropdown">
                 <li class="nav-item">
+                    <a class="nav-link pl-3" href="{{ route('admin.usuario.index') }}">
+                         <i class="fe fe-user fe-16"></i>
+                         <span class="ml-1 item-text">Estagiários</span>
+                    </a>
+                </li>
+            </li>
+            <li class="nav-item dropdown">
+                <li class="nav-item">
+                    <a class="nav-link pl-3" href="{{ route('admin.projecto.index') }}">
+                         <i class="fe fe-file-text fe-16"></i>
+                         <span class="ml-1 item-text">Projectos</span>
+                    </a>
+                </li>
+            </li>
+            <li class="nav-item dropdown">
+                <li class="nav-item">
                     <a class="nav-link pl-3" href="{{ route('admin.categoria_titulo_habitante.index') }}">
                          <i class="fe fe-file-text fe-16"></i>
                          <span class="ml-1 item-text">Categoria Titulo Habitantes</span>
