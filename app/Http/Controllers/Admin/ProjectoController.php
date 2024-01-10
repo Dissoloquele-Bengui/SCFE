@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Logger;
 use App\Models\Projecto;
-use App\Models\Usuario;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ProjectoController extends Controller
@@ -22,9 +22,9 @@ class ProjectoController extends Controller
     }
 
     public function index(){
-        $dados['usuarios']=Usuario::where('vc_tipo',"Supervisor")->orWhere('vc_tipo',"Coordenador")->get();
-        $dados['projectos']= Projecto::join('usuarios','projectos.it_id_usuario', '=','usuarios.id')
-        ->select('projectos.*','usuarios.vc_nome as nome_usuario')
+        $dados['users']=User::where('vc_tipo',"Supervisor")->orWhere('vc_tipo',"Coordenador")->get();
+        $dados['projectos']= Projecto::join('users','projectos.it_id_usuario', '=','users.id')
+        ->select('projectos.*','users.vc_nome as nome_users')
         ->get();
 
 

@@ -26,9 +26,11 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'vc_nome',
+        'vc_email',
+        'vc_password',
+        'vc_classe',
+        'vc_tipo',
     ];
 
     /**
@@ -37,7 +39,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
+        'vc_password',
         'remember_token',
         'two_factor_recovery_codes',
         'two_factor_secret',
@@ -57,7 +59,5 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $appends = [
-        'profile_photo_url',
-    ];
+  
 }

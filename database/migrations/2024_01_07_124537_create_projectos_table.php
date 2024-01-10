@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('it_estado');
             $table->string('vc_prioridade');
             $table->unsignedBigInteger('it_id_usuario');
-            $table->foreign('it_id_usuario')->references('id')->on('usuarios')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('it_id_usuario')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Logger;
 use App\Models\Usuario;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
@@ -20,7 +21,7 @@ class UsuarioController extends Controller
     }
 
     public function index(){
-        $data['usuarios']=Usuario::all();
+        $data['users']=User::all();
         $this->loggerData("Listou Categoria Estagiários");
 
         return view('admin.usuario.index', $data);
@@ -52,7 +53,7 @@ class UsuarioController extends Controller
 
 
         try{
-            $user=Usuario::create([
+            $user=User::create([
                 'vc_nome'=>$request->vc_nome,
                 'vc_email'=>$request->vc_email,
                 'vc_password'=>$request->vc_password,
@@ -87,7 +88,7 @@ class UsuarioController extends Controller
     public function edit(int $id)
     {
         //
-        $data['users']=usuario::all();
+        $data['users']=User::all();
 
 
         return view('admin.usuario.edit.index',$data);
@@ -109,9 +110,9 @@ class UsuarioController extends Controller
        ]);
          try {
             //code...
-            $user = Usuario::find($id);
+            $user = User::find($id);
 
-            $c =Usuario::findOrFail($id)->update([
+            $c =User::findOrFail($id)->update([
                'vc_nome'=>$request->vc_nome,
                'vc_email'=>$request->vc_email,
                'vc_password'=>$request->vc_password,
@@ -131,9 +132,9 @@ class UsuarioController extends Controller
         //
         try {
             //code...
-            $user =Usuario::findOrFail( $id);
+            $user =User::findOrFail( $id);
 
-            Usuario::findOrFail($id)->delete();
+            User::findOrFail($id)->delete();
             $this->loggerData(" Eliminou o usuário , ($user->vc_nome)");
             return redirect()->back()->with('usuario.destroy.success',1);
         } catch (\Throwable $th) {
@@ -147,8 +148,8 @@ class UsuarioController extends Controller
         //
         try {
             //code...
-            $user = Usuario::findOrFail($id);
-            Usuario::findOrFail($id)->forceDelete();
+            $user = User::findOrFail($id);
+            User::findOrFail($id)->forceDelete();
             $this->loggerData(" Purgou o usuário  ($user->vc_nome)");
             return redirect()->back()->with('usuario.purge.success',1);
         } catch (\Throwable $th) {

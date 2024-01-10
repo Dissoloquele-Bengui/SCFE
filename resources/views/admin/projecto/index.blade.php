@@ -63,7 +63,7 @@
                             <td>{{{$project->dt_data_conclusao}}}</td>
                             <td>{{{$project->it_estado}}}</td>
                             <td>{{{$project->vc_prioridade}}}</td>
-                            <td>{{{$project->nome_usuario}}}</td>
+                            <td>{{{$project->nome_users}}}</td>
                             <td>
                                 <div class="dropdown">
                                     <button class="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

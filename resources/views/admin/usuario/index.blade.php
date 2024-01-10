@@ -54,7 +54,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                    @foreach ($usuarios as $user)
+                    @foreach ($users as $user)
                         <tr>
                             <td>{{$user->id}}</td>
                             <td>{{{$user->vc_nome}}}</td>

@@ -27,9 +27,9 @@
       </div>
 
       <div class="form-group mr-3 col-4">
-        <label for="it_id_usuario" class="mr-2 mt-4">Estagiário</label>
+        <label for="it_id_usuario" class="mr-2 mt-4">Supervisor</label>
         <select id="it_id_usuario" name="it_id_usuario" class="form-control ">
-            @foreach ($usuarios as $user)
+            @foreach ($users as $user)
                  <option value="{{$user->id}}">{{$user->vc_tipo}}</option>
              @endforeach
         </select>
