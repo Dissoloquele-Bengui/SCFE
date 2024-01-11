@@ -19,6 +19,8 @@ class Atraso extends Model
     protected $fillable = [
     'it_id_tarefa_usuario',
     'qtd_dias',
+    'dt_data_atribuicao',
+    'dt_data_termino',
     ];
     protected $table = 'atraso';
 }

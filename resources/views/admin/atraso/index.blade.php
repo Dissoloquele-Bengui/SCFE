@@ -40,22 +40,32 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>NOME</th>
-                                        <th>Tempo</th>
+                                        <th>Tempo de Atraso</th>
                                         <th>Opções</th>
                                     </tr>
                                 </thead>
 
-                                <tbody>
-                                    @foreach ($dadosAtrasados as $atraso)
-                                    <tr>
-                                        <td>{{ $atraso->id }}</td>
-                                        <td>{{ $atraso->nome }}</td>
-                                        <td>
-                                            
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
+                                @foreach ($atrasos as $atraso)
+                                <tr>
+                                    <td>{{ $atraso->id }}</td>
+                                    <td>{{ $atraso->nome }}</td>
+                                    <td>
+                                        {{ $atraso->tempo_atraso['dias'] }} dias,
+                                        {{ $atraso->tempo_atraso['horas'] }} horas,
+                                        {{ $atraso->tempo_atraso['semanas'] }} semanas
+                                    </td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Opções
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="{{ route('justificar-atraso', ['id' => $atraso->id]) }}">Justificar Atraso</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                @endforeach
 
                             </table>
                             <nav aria-label="Table Paging" class="mb-0 text-muted">

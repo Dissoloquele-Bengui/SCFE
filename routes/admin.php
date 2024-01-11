@@ -32,6 +32,7 @@ Route::prefix('categoria_titulo_habitante')->group(function () {
 
 Route::prefix('atraso')->group(function () {
     Route::get('index', ['as' => 'admin.atraso.index', 'uses' => 'AtrasoController@index']);
+    Route::get('/justificar-atraso/{id}', 'AtrasoController@justificarAtraso')->name('justificar-atraso');
 });
 
 /*END CategoriaTituloHabitante*/

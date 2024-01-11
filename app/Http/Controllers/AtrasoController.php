@@ -4,16 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Atraso;
+use App\Models\Tarefa;
+use Carbon\Carbon;
 
 class AtrasoController extends Controller
 {
     //
-    public function index(Request $id)
+    public function index(Request $request)
     {
         // Lógica para obter os dados atrasados com base no ID
-        $dadosAtrasados = Atraso::where('it_id_tarefa_usuario', $id)->get();
+        $atrasos = Atraso::all();
 
-        return view('admin.atraso.index', ['dadosAtrasados' => $dadosAtrasados]);
+        foreach ($atrasos as $atraso) {
+            $atraso->tempo_atraso = $this->calcularTempoAtraso($atraso->dt_data_atribuicao, $atraso->dt_data_termino);
+        }
+
+        return view('admin.atraso.index', ['atrasos' => $atrasos]);
     }
 
     public function create(Request $request)
@@ -77,5 +83,43 @@ class AtrasoController extends Controller
 
         // Redirecionar o usuário para uma view ou rota específica.
         return redirect()->route('index');
+    }
+
+    private function calcularTempoAtraso($dataAtribuicao, $dataTermino)
+    {
+        $dataAtribuicao = Carbon::parse($dataAtribuicao);
+        $dataTermino = Carbon::parse($dataTermino);
+
+        // Calcular a diferença em dias, horas e semanas
+        $diferenca = $dataTermino->diff($dataAtribuicao);
+
+        return [
+            'dias' => $diferenca->days,
+            'horas' => $diferenca->h,
+            'semanas' => floor($diferenca->days / 7),
+        ];
+    }
+
+    public function registrarAtraso(Request $request)
+    {
+        $atraso = new Atraso();
+        $atraso->it_id_tarefa_usuario = $request->it_id_tarefa_usuario;
+        $atraso->dt_data_atribuicao = now(); // Ou utilize a data de atribuição fornecida pelo usuário
+
+        // Calcular a data de término com base nos dias fornecidos
+        $qtdDias = $request->qtd_dias;
+        $atraso->dt_data_termino = Carbon::parse($atraso->dt_data_atribuicao)->addDays($qtdDias);
+
+        $atraso->save();
+
+        return redirect()->route('atraso.index'); // Ou qualquer outra rota após salvar
+    }
+
+    public function justificarAtraso($id)
+    {
+        // Lógica para obter os dados do atraso a ser justificado
+        $atraso = Atraso::findOrFail($id);
+
+        return view('admin.atraso.justificar', ['atraso' => $atraso]);
     }
 }
