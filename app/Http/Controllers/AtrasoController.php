@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Atraso;
-use App\Models\Tarefa;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 use Carbon\Carbon;
 
 class AtrasoController extends Controller
@@ -14,9 +15,13 @@ class AtrasoController extends Controller
     {
         // Lógica para obter os dados atrasados com base no ID
         $atrasos = Atraso::all();
+        $user = User::find(Auth::id());
 
         foreach ($atrasos as $atraso) {
-            $atraso->tempo_atraso = $this->calcularTempoAtraso($atraso->dt_data_atribuicao, $atraso->dt_data_termino);
+            // Adicione esta linha para obter o nome do usuário associado ao ID
+            $atraso->nome_usuario = $this->getNomeUsuario($user->id);
+
+            $atraso->tempo_atraso = $this->calcularTempoAtraso($atraso->dt_data_atribuicao, $atraso->qtd_dias);
         }
 
         return view('admin.atraso.index', ['atrasos' => $atrasos]);
@@ -29,10 +34,13 @@ class AtrasoController extends Controller
             // Adicione regras de validação aqui, se necessário.
         ]);
 
+        $user = User::find(Auth::id());
+
         // Criar um novo atraso usando os dados do formulário.
         Atraso::create([
             'it_id_tarefa_usuario' => $request->it_id_tarefa_usuario,
             'qtd_dias' => $request->qtd_dias,
+            'id_user' => $user->id,
             // Adicione outras colunas conforme necessário.
         ]);
 
@@ -44,6 +52,7 @@ class AtrasoController extends Controller
     {
         // Encontrar o atraso que você deseja atualizar.
         $atraso = Atraso::findOrFail($id);
+        $user = User::find(Auth::id());
 
         // Validar os dados do formulário, se necessário.
         $this->validate($request, [
@@ -54,6 +63,7 @@ class AtrasoController extends Controller
         $atraso->update([
             'it_id_tarefa_usuario' => $request->it_id_tarefa_usuario,
             'qtd_dias' => $request->qtd_dias,
+            'id_user' => $user->id,
             // Adicione outras colunas conforme necessário.
         ]);
 
@@ -85,18 +95,27 @@ class AtrasoController extends Controller
         return redirect()->route('index');
     }
 
-    private function calcularTempoAtraso($dataAtribuicao, $dataTermino)
+    private function calcularTempoAtraso($dataAtribuicao, $qtdDias,)
     {
-        $dataAtribuicao = Carbon::parse($dataAtribuicao);
-        $dataTermino = Carbon::parse($dataTermino);
+        // Configurar o fuso horário para Casablanca
+        $fusoHorario = 'Africa/Casablanca';
 
-        // Calcular a diferença em dias, horas e semanas
-        $diferenca = $dataTermino->diff($dataAtribuicao);
+        // Obter a data atual com o fuso horário configurado
+        $dataAtual = Carbon::now($fusoHorario);
+
+        // Remover a hora e minutos da data de atribuição
+        $dataAtribuicao = Carbon::parse($dataAtribuicao, $fusoHorario)->startOfDay();
+
+        // Calcular a data de término com base nos dias fornecidos
+        $dataTermino = $dataAtribuicao->copy()->addDays($qtdDias);
+
+        // Calcular a diferença em dias, horas e minutos
+        $diferenca = $dataTermino->diff($dataAtual);
 
         return [
             'dias' => $diferenca->days,
             'horas' => $diferenca->h,
-            'semanas' => floor($diferenca->days / 7),
+            'minutos' => $diferenca->i,
         ];
     }
 
@@ -121,5 +140,16 @@ class AtrasoController extends Controller
         $atraso = Atraso::findOrFail($id);
 
         return view('admin.atraso.justificar', ['atraso' => $atraso]);
+    }
+    // Adicione este método ao seu controlador para obter o nome do usuário
+    private function getNomeUsuario($userId)
+    {
+        $usuario = User::find($userId);
+    
+        if ($usuario) {
+            return $usuario->name; // Substitua 'nome' pela coluna real do nome na tabela users
+        }
+    
+        return 'Usuário não encontrado';
     }
 }

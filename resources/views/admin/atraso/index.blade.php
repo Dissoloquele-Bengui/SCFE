@@ -48,11 +48,11 @@
                                 @foreach ($atrasos as $atraso)
                                 <tr>
                                     <td>{{ $atraso->id }}</td>
-                                    <td>{{ $atraso->nome }}</td>
+                                    <td>{{ $atraso->nome_usuario }}</td>
                                     <td>
                                         {{ $atraso->tempo_atraso['dias'] }} dias,
                                         {{ $atraso->tempo_atraso['horas'] }} horas,
-                                        {{ $atraso->tempo_atraso['semanas'] }} semanas
+                                        {{ $atraso->tempo_atraso['minutos'] }} minutos
                                     </td>
                                     <td>
                                         <div class="btn-group">

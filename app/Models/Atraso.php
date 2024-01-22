@@ -11,16 +11,17 @@ class Atraso extends Model
     use HasFactory;
     use SoftDeletes;
 
-        /**
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-    'it_id_tarefa_usuario',
-    'qtd_dias',
-    'dt_data_atribuicao',
-    'dt_data_termino',
+        'it_id_tarefa_usuario',
+        'id_user',
+        'qtd_dias',
+        'dt_data_atribuicao',
+        'dt_data_termino',
     ];
     protected $table = 'atraso';
 }

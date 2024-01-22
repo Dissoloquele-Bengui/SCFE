@@ -15,7 +15,9 @@ return new class extends Migration
         Schema::create('atraso', function (Blueprint $table) {
             $table->id();
             $table->integer("it_id_tarefa_usuario");
+            $table->integer("id_user");
             $table->integer("qtd_dias");
+            $table->date("dt_data_atribuicao");
             $table->softDeletes();
             $table->timestamps();
         });
