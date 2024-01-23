@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt-br">
 @include('layouts._includes.admin.head')
-<body class="vertical  light  ">
+<body class="vertical  light ">
     <div class="wrapper">
         <nav class="topnav navbar navbar-light">
         <button type="button" class="navbar-toggler text-muted mt-2 p-0 mr-3 collapseSidebar">

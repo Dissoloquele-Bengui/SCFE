@@ -45,6 +45,34 @@ Route::prefix('projecto')->group(function () {
 
 /*END */
 
+/*START FREQUÊNCIA*/
+Route::prefix('frequencia')->group(function () {
+    Route::get('index', ['as' => 'admin.frequencia.index', 'uses' => 'Admin\FrequenciaController@index']);
+    Route::get('create', ['as' => 'admin.frequencia.create', 'uses' => 'Admin\FrequenciaController@create']);
+    Route::post('store', ['as' => 'admin.frequencia.store', 'uses' => 'Admin\FrequenciaController@store']);
+    Route::get('show/{id}', ['as' => 'admin.frequencia.show', 'uses' => 'Admin\FrequenciaController@show']);
+    Route::get('edit/{id}', ['as' => 'admin.frequencia.edit', 'uses' => 'Admin\FrequenciaController@edit']);
+    Route::post('update/{id}', ['as' => 'admin.frequencia.update', 'uses' => 'Admin\FrequenciaController@update']);
+    Route::get('destroy/{id}', ['as' => 'admin.frequencia.destroy', 'uses' => 'Admin\FrequenciaController@destroy']);
+    Route::get('purge/{id}', ['as' => 'admin.frequencia.purge', 'uses' => 'Admin\FrequenciaController@purge']);
+});
+
+/*END */
+
+/*START FREQUÊNCIA*/
+Route::prefix('justificativa')->group(function () {
+    Route::get('index', ['as' => 'admin.justificativa.index', 'uses' => 'Admin\JustificativaController@index']);
+    Route::get('create', ['as' => 'admin.justificativa.create', 'uses' => 'Admin\JustificativaController@create']);
+    Route::post('store', ['as' => 'admin.justificativa.store', 'uses' => 'Admin\JustificativaController@store']);
+    Route::get('show/{id}', ['as' => 'admin.justificativa.show', 'uses' => 'Admin\JustificativaController@show']);
+    Route::get('edit/{id}', ['as' => 'admin.justificativa.edit', 'uses' => 'Admin\JustificativaController@edit']);
+    Route::post('update/{id}', ['as' => 'admin.justificativa.update', 'uses' => 'Admin\JustificativaController@update']);
+    Route::get('destroy/{id}', ['as' => 'admin.justificativa.destroy', 'uses' => 'Admin\JustificativaController@destroy']);
+    Route::get('purge/{id}', ['as' => 'admin.justificativa.purge', 'uses' => 'Admin\JustificativaController@purge']);
+});
+
+/*END */
+
 
 
 /*START CategoriaTituloHabitante*/

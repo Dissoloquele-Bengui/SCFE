@@ -9,13 +9,11 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
     use HasApiTokens;
     use HasFactory;
-    use SoftDeletes;
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
@@ -26,11 +24,9 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'vc_nome',
-        'vc_email',
-        'vc_password',
-        'vc_classe',
-        'vc_tipo',
+        'name',
+        'email',
+        'password',
     ];
 
     /**
@@ -39,7 +35,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'vc_password',
+        'password',
         'remember_token',
         'two_factor_recovery_codes',
         'two_factor_secret',
@@ -59,5 +55,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-  
+    protected $appends = [
+        'profile_photo_url',
+    ];
 }

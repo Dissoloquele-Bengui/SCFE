@@ -45,7 +45,7 @@
                 <thead class="thead-dark">
                   <tr>
                     <th>ID</th>
-                    <th>NOME</th>
+                    <th>Nome</th>
                     <th>Email</th>
                     <th>Senha</th>
                     <th>Classe</th>

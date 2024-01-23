@@ -29,7 +29,7 @@
             <li class="nav-item dropdown">
                 <li class="nav-item">
                     <a class="nav-link pl-3" href="{{ route('admin.usuario.index') }}">
-                         <i class="fe fe-user fe-16"></i>
+                         <i class="fe fe-users fe-16"></i>
                          <span class="ml-1 item-text">Estagiários</span>
                     </a>
                 </li>
@@ -37,8 +37,25 @@
             <li class="nav-item dropdown">
                 <li class="nav-item">
                     <a class="nav-link pl-3" href="{{ route('admin.projecto.index') }}">
-                         <i class="fe fe-file-text fe-16"></i>
+                         <i class="fe fe-code fe-16"></i>
                          <span class="ml-1 item-text">Projectos</span>
+                    </a>
+                </li>
+            </li>
+            </li>
+            <li class="nav-item dropdown">
+                <li class="nav-item">
+                    <a class="nav-link pl-3" href="{{ route('admin.frequencia.index') }}">
+                         <i class="fe fe-calendar fe-16"></i>
+                         <span class="ml-1 item-text">Frequência</span>
+                    </a>
+                </li>
+            </li>
+            <li class="nav-item dropdown">
+                <li class="nav-item">
+                    <a class="nav-link pl-3" href="{{ route('admin.justificativa.index') }}">
+                         <i class="fe fe-edit fe-16"></i>
+                         <span class="ml-1 item-text">Justificativa</span>
                     </a>
                 </li>
             </li>

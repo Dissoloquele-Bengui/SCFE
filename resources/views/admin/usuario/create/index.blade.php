@@ -10,7 +10,7 @@
             @csrf
             <div class="card-body">
                 @include('_form.usuario.index')
-                <button type="submit" class="btn btn-primary w-md">Cadastrar</button>
+                <button type="submit" class="btn btn-primary w-md mb-3 ml-3">Cadastrar</button>
             </div>
         </form>
     </div>
