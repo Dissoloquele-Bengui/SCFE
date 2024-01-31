@@ -44,6 +44,25 @@
             </li>
             <li class="nav-item dropdown">
                 <li class="nav-item">
+                    <a class="nav-link pl-3" href="{{ route('admin.tarefa.index') }}">
+                         <i class="fe fe-file-text fe-16"></i>
+                         <span class="ml-1 item-text">Tarefa</span>
+                    </a>
+                </li>
+            </li>
+
+        </li>
+        <li class="nav-item dropdown">
+            <li class="nav-item">
+                <a class="nav-link pl-3" href="{{ route('admin.categoriaTarefa.index') }}">
+                     <i class="fe fe-file-text fe-16"></i>
+                     <span class="ml-1 item-text">Categoria Tarefa</span>
+                </a>
+            </li>
+        </li>
+
+            <li class="nav-item dropdown">
+                <li class="nav-item">
                     <a class="nav-link pl-3" href="{{ route('admin.categoria_titulo_habitante.index') }}">
                          <i class="fe fe-file-text fe-16"></i>
                          <span class="ml-1 item-text">Categoria Titulo Habitantes</span>
