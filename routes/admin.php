@@ -44,30 +44,73 @@ Route::prefix('projecto')->group(function () {
 });
 
 /*END */
+
+/*START FREQUÊNCIA*/
+Route::prefix('frequencia')->group(function () {
+    Route::get('index', ['as' => 'admin.frequencia.index', 'uses' => 'Admin\FrequenciaController@index']);
+    Route::get('create', ['as' => 'admin.frequencia.create', 'uses' => 'Admin\FrequenciaController@create']);
+    Route::post('store', ['as' => 'admin.frequencia.store', 'uses' => 'Admin\FrequenciaController@store']);
+    Route::get('show/{id}', ['as' => 'admin.frequencia.show', 'uses' => 'Admin\FrequenciaController@show']);
+    Route::get('edit/{id}', ['as' => 'admin.frequencia.edit', 'uses' => 'Admin\FrequenciaController@edit']);
+    Route::post('update/{id}', ['as' => 'admin.frequencia.update', 'uses' => 'Admin\FrequenciaController@update']);
+    Route::get('destroy/{id}', ['as' => 'admin.frequencia.destroy', 'uses' => 'Admin\FrequenciaController@destroy']);
+    Route::get('purge/{id}', ['as' => 'admin.frequencia.purge', 'uses' => 'Admin\FrequenciaController@purge']);
+});
+
+/*END */
+/*START FREQUÊNCIA*/
 Route::prefix('tarefa')->group(function () {
-    Route::get('index', ['as' => 'admin.tarefa.index', 'uses' => 'Admin\tarefaController@index']);
-    Route::get('create', ['as' => 'admin.tarefa.create', 'uses' => 'Admin\tarefaController@create']);
-    Route::post('store', ['as' => 'admin.tarefa.store', 'uses' => 'Admin\tarefaController@store']);
-    Route::get('show/{id}', ['as' => 'admin.tarefa.show', 'uses' => 'Admin\tarefaController@show']);
-    Route::get('edit/{id}', ['as' => 'admin.tarefa.edit', 'uses' => 'Admin\tarefaController@edit']);
-    Route::post('update/{id}', ['as' => 'admin.tarefa.update', 'uses' => 'Admin\tarefaController@update']);
-    Route::get('destroy/{id}', ['as' => 'admin.tarefa.destroy', 'uses' => 'Admin\tarefaController@destroy']);
-    Route::get('purge/{id}', ['as' => 'admin.tarefa.purge', 'uses' => 'Admin\tarefaController@purge']);
+    Route::get('index', ['as' => 'admin.tarefa.index', 'uses' => 'Admin\TarefaController@index']);
+    Route::get('create', ['as' => 'admin.tarefa.create', 'uses' => 'Admin\TarefaController@create']);
+    Route::post('store', ['as' => 'admin.tarefa.store', 'uses' => 'Admin\TarefaController@store']);
+    Route::get('show/{id}', ['as' => 'admin.tarefa.show', 'uses' => 'Admin\TarefaController@show']);
+    Route::get('edit/{id}', ['as' => 'admin.tarefa.edit', 'uses' => 'Admin\TarefaController@edit']);
+    Route::post('update/{id}', ['as' => 'admin.tarefa.update', 'uses' => 'Admin\TarefaController@update']);
+    Route::get('destroy/{id}', ['as' => 'admin.tarefa.destroy', 'uses' => 'Admin\TarefaController@destroy']);
+    Route::get('purge/{id}', ['as' => 'admin.tarefa.purge', 'uses' => 'Admin\TarefaController@purge']);
 });
-/*START categoriaTarefa*/
+
+/*END */
+
+/*START FREQUÊNCIA*/
+Route::prefix('justificativa')->group(function () {
+    Route::get('index', ['as' => 'admin.justificativa.index', 'uses' => 'Admin\JustificativaController@index']);
+    Route::get('create', ['as' => 'admin.justificativa.create', 'uses' => 'Admin\JustificativaController@create']);
+    Route::post('store', ['as' => 'admin.justificativa.store', 'uses' => 'Admin\JustificativaController@store']);
+    Route::get('show/{id}', ['as' => 'admin.justificativa.show', 'uses' => 'Admin\JustificativaController@show']);
+    Route::get('edit/{id}', ['as' => 'admin.justificativa.edit', 'uses' => 'Admin\JustificativaController@edit']);
+    Route::post('update/{id}', ['as' => 'admin.justificativa.update', 'uses' => 'Admin\JustificativaController@update']);
+    Route::get('destroy/{id}', ['as' => 'admin.justificativa.destroy', 'uses' => 'Admin\JustificativaController@destroy']);
+    Route::get('purge/{id}', ['as' => 'admin.justificativa.purge', 'uses' => 'Admin\JustificativaController@purge']);
+});
+
+/*END */
+/*START FREQUÊNCIA*/
+Route::prefix('tarefa_usuario')->group(function () {
+    Route::get('index', ['as' => 'admin.tarefa_usuario.index', 'uses' => 'Admin\TarefaUsuarioController@index']);
+    Route::get('create', ['as' => 'admin.tarefa_usuario.create', 'uses' => 'Admin\TarefaUsuarioController@create']);
+    Route::post('store', ['as' => 'admin.tarefa_usuario.store', 'uses' => 'Admin\TarefaUsuarioController@store']);
+    Route::get('show/{id}', ['as' => 'admin.tarefa_usuario.show', 'uses' => 'Admin\TarefaUsuarioController@show']);
+    Route::get('edit/{id}', ['as' => 'admin.tarefa_usuario.edit', 'uses' => 'Admin\TarefaUsuarioController@edit']);
+    Route::post('update/{id}', ['as' => 'admin.tarefa_usuario.update', 'uses' => 'Admin\TarefaUsuarioController@update']);
+    Route::get('destroy/{id}', ['as' => 'admin.tarefa_usuario.destroy', 'uses' => 'Admin\TarefaUsuarioController@destroy']);
+    Route::get('purge/{id}', ['as' => 'admin.tarefa_usuario.purge', 'uses' => 'Admin\TarefaUsuarioController@purge']);
+});
+
+/*END */
+/*START FREQUÊNCIA*/
 Route::prefix('categoriaTarefa')->group(function () {
-    Route::get('index', ['as' => 'admin.categoriaTarefa.index', 'uses' => 'Admin\CategoriaTarefaController@index']);
-    Route::get('create', ['as' => 'admin.categoriaTarefa.create', 'uses' => 'Admin\CategoriaTarefaController@create']);
-    Route::post('store', ['as' => 'admin.categoriaTarefa.store', 'uses' => 'Admin\CategoriaTarefaController@store']);
-    Route::get('show/{id}', ['as' => 'admin.categoriaTarefa.show', 'uses' => 'Admin\CategoriaTarefaController@show']);
-    Route::get('edit/{id}', ['as' => 'admin.categoriaTarefa.edit', 'uses' => 'Admin\CategoriaTarefaController@edit']);
-    Route::post('update/{id}', ['as' => 'admin.categoriaTarefa.update', 'uses' => 'Admin\CategoriaTarefaController@update']);
-    Route::get('destroy/{id}', ['as' => 'admin.categoriaTarefa.destroy', 'uses' => 'Admin\CategoriaTarefaController@destroy']);
-    Route::get('purge/{id}', ['as' => 'admin.categoriaTarefa.purge', 'uses' => 'Admin\CategoriaTarefaController@purge']);
+    Route::get('index', ['as' => 'admin.categoriaTarefa.index', 'uses' => 'Admin\CaegoriaTarefaController@index']);
+    Route::get('create', ['as' => 'admin.categoriaTarefa.create', 'uses' => 'Admin\CaegoriaTarefaController@create']);
+    Route::post('store', ['as' => 'admin.categoriaTarefa.store', 'uses' => 'Admin\CaegoriaTarefaController@store']);
+    Route::get('show/{id}', ['as' => 'admin.categoriaTarefa.show', 'uses' => 'Admin\CaegoriaTarefaController@show']);
+    Route::get('edit/{id}', ['as' => 'admin.categoriaTarefa.edit', 'uses' => 'Admin\CaegoriaTarefaController@edit']);
+    Route::post('update/{id}', ['as' => 'admin.categoriaTarefa.update', 'uses' => 'Admin\CaegoriaTarefaController@update']);
+    Route::get('destroy/{id}', ['as' => 'admin.categoriaTarefa.destroy', 'uses' => 'Admin\CaegoriaTarefaController@destroy']);
+    Route::get('purge/{id}', ['as' => 'admin.categoriaTarefa.purge', 'uses' => 'Admin\CaegoriaTarefaController@purge']);
 });
 
-/*END categoriaTarefa*/
-
+/*END */
 
 
 
@@ -90,12 +133,6 @@ Route::prefix('categoria_titulo_habitante')->group(function () {
 
 
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'),  'verified',])->group(function () {
+    Route::get('/dashboard', function () {return view('dashboard');   })->name('dashboard')->middleware('auth');
 });

@@ -17,9 +17,9 @@
         </div>
         <ul class="navbar-nav flex-fill w-100 mb-2">
             <li class="nav-item dropdown">
-                <a class="nav-link">
+                <a class=" nav-link">
                     <i class="fe fe-home fe-16"></i>
-                    <span class="ml-3 item-text">Dashboard</span><span class="sr-only">(current)</span>
+                    <span  class="ml-3 item-text">Dashboard</span><span class="sr-only">(current)</span>
                 </a>
             </li>
             <p class="text-muted nav-heading mt-4 mb-1">
@@ -50,14 +50,22 @@
                     </a>
                 </li>
             </li>
-
-        </li>
-        <li class="nav-item dropdown">
-            <li class="nav-item">
-                <a class="nav-link pl-3" href="{{ route('admin.categoriaTarefa.index') }}">
-                     <i class="fe fe-file-text fe-16"></i>
-                     <span class="ml-1 item-text">Categoria Tarefa</span>
-                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <li class="nav-item">
+                    <a class="nav-link pl-3" href="{{ route('admin.tarefa_usuario.index') }}">
+                         <i class="fe fe-calendar fe-16"></i>
+                         <span class="ml-1 item-text">Tarefa Usuário</span>
+                    </a>
+                </li>
+            </li>
+            <li class="nav-item dropdown">
+                <li class="nav-item">
+                    <a class="nav-link pl-3" href="{{ route('admin.justificativa.index') }}">
+                         <i class="fe fe-edit fe-16"></i>
+                         <span class="ml-1 item-text">Justificativa</span>
+                    </a>
+                </li>
             </li>
         </li>
 

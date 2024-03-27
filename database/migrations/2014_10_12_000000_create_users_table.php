@@ -18,10 +18,9 @@ return new class extends Migration
             $table->string('vc_password');
             $table->string('vc_classe');
             $table->string('vc_tipo');
-            $table->timestamp('email_verified_at')->nullable();
-            $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
+            $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
         });
